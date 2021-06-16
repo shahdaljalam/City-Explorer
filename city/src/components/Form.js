@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootsrap/Button'
 import Image from 'react-bootstrap/Images'
 import Alertmass from './Alertmass';
+import Weather from './Weather';
+import Card from 'react-bootstrap/card'
+import { appendToMemberExpression } from '@babel/types';
 
 export class Form extends Component {
 
@@ -35,6 +38,7 @@ export class Form extends Component {
                 cityData: axiosResponse.data[0],
                 displayData: true,
                 alert: false
+                weatherData: appendToMemberExpression.data
             })
         } catch (error) {
             this.setState({
@@ -51,15 +55,15 @@ export class Form extends Component {
                 <Alertmass
                     alert={this.state.alert}
                 />
-
-                <form onSubmit={this.getCityData}>
-                    <Form.Group className="mb-3" conrolId="formBasicEmail">
-                        <Form.Label>City Name</Form.Label>
-                        <Form.control type="text" placehoolder="Enter City Name" onchange={this.updateCityNameState} size={'sm'} />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">Explore!</Button>
-                </form>
-
+                <Card style={{ width: '38rem' }}>
+                    <form onSubmit={this.getCityData}>
+                        <Form.Group className="mb-3" conrolId="formBasicEmail">
+                            <Form.Label>City Name</Form.Label>
+                            <Form.control type="text" placehoolder="Enter City Name" onchange={this.updateCityNameState} size={'sm'} />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">Explore!</Button>
+                    </form>
+                </Card>
                 {this.state.displayData &&
                     <div>
                         <p>
