@@ -1,37 +1,20 @@
 import React, { Component } from 'react'
+import 'bootstrap/dist/css/bootsrap.min.css';
+import Form from './components/Form';
+
 export class App extends Component {
-
-constructor(props){
-  super(props);
-  this.state={
-  cityName : ''
- } 
-}
-
-updateCityNameState = (e) =>{
-this.setState(
-  {
-    cityName:e.target.value
-  }
-)
-}
 
   render() {
     return (
-      <div>
-        <h2>City Evvxplorer</h2>
-        <form>
-          <lable>
-            City Name:
-          </lable>
-          <input onChange={this.updateCityNameState} type="text" />
-          <br></br>
-          <br></br>
-          <input type="submit" value="get City" />
-        </form>
+      <div className="App">
+        <header>
+          <h1>City Explorer</h1>
+        </header>
+        <Form />
       </div>
     )
   }
+
 }
 
 export default App
