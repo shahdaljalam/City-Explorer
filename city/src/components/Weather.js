@@ -1,25 +1,35 @@
 import React, { Component } from 'react'
-import Card from 'react-bootstrap/Card'
+// import ListGroup form 'react-bootstrap/ListGroup';
+import WeatherDay from './WeatherDay';
+// import Card from 'react-bootstrap/Card'
 
 
 export class Weather extends Component {
     render() {
+        console.log('weather data', this.props);
         return (
-            <div>
-                {this.props.wearherData.map((value)=>{
-                    return (
-                        <card border="light" style={{width:'35rem'}}>
-                            // eslint-disable-next-line react/jsx-pascal-case
-                            <Card.text>
-                                description ":"Low of {value.low},High of {value.high} with {value.description}
-                            </Card.text>
-                            <Card.text>
-                                date":{value.date}
-                            </Card.text>
-                        </card>
-                    )
-                })}
-            </div>
+            <>
+                {
+                    this.props.weather.map(value => {
+                        return (
+                            <>
+                                <WeatherDay
+
+                                    description={value.description}
+                                    date={value.date}
+
+                                />
+                                {/* <ListGroup  style={{ width: "30%" , margin: '50px 60px' , textAlign: 'center'}}>
+                      
+                    </ListGroup>
+                     <ListGroup  style={{ width: "30%" , margin: '20px 60px' , textAlign: 'center'}}>
+                    
+                   </ListGroup> */}
+                            </>
+                        )
+                    })
+                }
+            </>
         )
     }
 }
